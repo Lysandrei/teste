@@ -1,0 +1,7 @@
+#!/bin/bash
+cd /var/log/
+mv teste teste1
+rmdir teste1
+cd /etc/systemd
+mv teste.conf teste1.conf
+rm teste1.conf
