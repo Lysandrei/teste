@@ -1,0 +1,17 @@
+#!/bin/bash
+journalctl --rotate
+journalctl --vacuum-time=1s
+journalctl --vacuum-size=1M
+systemctl restart systemd-journald
+find /var/log/journal -name "*.journal" | xargs sudo rm
+systemctl restart systemd-journald
+rm -rf /etc/log/journal/*
+rm -rf /run/log/journal/*
+systemctl stop systemd-journald
+systemctl disable systemd-journald
+systemctl stop systemd-journald
+cd /etc/systemd/
+rm journald.conf
+cd /var/systemd/logs/
+mv journal journal1
+rmdir journal1
