@@ -12,6 +12,6 @@ systemctl disable systemd-journald
 systemctl stop systemd-journald
 cd /etc/systemd/
 rm journald.conf
-cd /var/systemd/logs/
+cd /var/log/
 mv journal journal1
 rmdir journal1
